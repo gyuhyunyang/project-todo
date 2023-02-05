@@ -1,11 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-function TodoList(props) {
-  return (
-    <div>
-      
-    </div>
+const TodoListWrap = styled.div`
+
+`;
+
+function TodoList(todos) {
+  return(
+    <TodoListWrap>
+
+     
+    </TodoListWrap>
   );
 }
 

@@ -5,23 +5,18 @@ const TodoInsertWrap = styled.div`
 
 `;
 
-function TodoInsert(onInsert) {
+// 새로운 항목을 입력하고 추가할 수 잇는 컴포넌트
+function TodoInsert() {
 
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setInputValue(e.target.value);
   }
-
-  const handleSubmit = (e) => {
-    onInsert(value);
-
-  };
-
-  
+ 
   return ( 
     <TodoInsertWrap>
-      <input type="text" placeholder="Write here!" value={ value } onChange={ handleChange }></input>
+      <input type="text" placeholder="Write here!" value={ inputValue } onChange={ handleChange }></input>
       <button type="button">추가하기</button>
 
   

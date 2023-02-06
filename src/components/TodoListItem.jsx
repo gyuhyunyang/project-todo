@@ -4,10 +4,13 @@ const TodoListItemWrap = styled.div`
 
 `;
 
-function TodoListItem() {
+function TodoListItem({ todo }) {
+  const { id, text, checked } = todo;
+
   return ( 
     <TodoListItemWrap>
-      
+      {text}
+
     </TodoListItemWrap>
 
   );

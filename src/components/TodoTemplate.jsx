@@ -1,26 +1,21 @@
+import { Children } from "react";
 import styled from "styled-components";
-import TodoHead from "./TodoHead";
-import TodoInsert from "./TodoInsert";
-import TodoList from "./TodoList";
 
 
-// 투두리스트의 레이아웃설정 컴포넌트
+
 
 const TodoTemplateWrap = styled.div`
 
-
 `;
 
-function TodoTemplate() {
-  
-  return ( 
-    <TodoTemplateWrap>
-       <TodoHead />
-       <TodoList />
-       <TodoInsert />
-
-
-    </TodoTemplateWrap>
+// 화면을 가운데 정렬하고, children으로 내부 자식 엘리먼트들을 props로 받아와서 렌더링
+function TodoTemplate(props) {
+   const { children } = props;
+   
+   return ( 
+      <TodoTemplateWrap>
+         <div className="content">{children}</div>
+      </TodoTemplateWrap>
    );
 }
 

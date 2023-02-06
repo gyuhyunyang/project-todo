@@ -3,6 +3,18 @@ import { useState } from "react";
 
 const TodoHeadWrap = styled.div`
 
+  margin-bottom: 50px;
+
+
+
+  .todo-title {
+    font-size: 40px;
+    font-weight:bold;
+    text-align: center;
+  }
+
+
+
 `;
 
 
@@ -19,16 +31,18 @@ function TodoHead() {
   const minutes = today.getMinutes()
 
 
+  
+
+
 
   return ( 
     <TodoHeadWrap>
-      <h1>일정관리</h1>
+      
 
-      <div>{year} / {month} / {data}</div>
+      <div>{year} / {month < 10 ? "0" + month : month} / {data < 10 ? "0" + data : data}</div>
       <div>{day}</div>
-      <div>{hours < 10 ? "0" + hours : hours} : {minutes < 10 ? "0" + minutes : minutes}</div>
-
-      <div>해야 할 일이 3개 남았습니다.</div>
+      <div class="todo-title">TODO LIST</div>
+      <p>해야 할 일이 3개 남았습니다.</p>
     </TodoHeadWrap>
   );
 }

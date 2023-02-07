@@ -2,18 +2,15 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const TodoHeadWrap = styled.div`
-
   margin-bottom: 50px;
 
 
-
   .todo-title {
-    font-size: 40px;
+    font-size: 30px;
     font-weight:bold;
     text-align: center;
+    margin-bottom: 30px;
   }
-
-
 
 `;
 
@@ -31,17 +28,11 @@ function TodoHead() {
   const minutes = today.getMinutes()
 
 
-  
-
-
-
   return ( 
     <TodoHeadWrap>
-      
-
       <div>{year} / {month < 10 ? "0" + month : month} / {data < 10 ? "0" + data : data}</div>
       <div>{day}</div>
-      <div class="todo-title">TODO LIST</div>
+      <div class="todo-title">📝 ToDo List</div>
       <p>해야 할 일이 3개 남았습니다.</p>
     </TodoHeadWrap>
   );

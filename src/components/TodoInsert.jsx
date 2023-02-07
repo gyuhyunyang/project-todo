@@ -21,7 +21,7 @@ function TodoInsert({onInsert}) {
     // submit 이벤트가 발생시키는 새로고침을 방지
     e.preventDefault();
   };
- 
+
   return ( 
     <TodoInsertWrap>
       <input type="text" placeholder="Write here!" value={ value } onChange={ handleChange }></input>
@@ -30,7 +30,7 @@ function TodoInsert({onInsert}) {
   
 
     </TodoInsertWrap>
-   );
+  );
 }
 
 export default TodoInsert;

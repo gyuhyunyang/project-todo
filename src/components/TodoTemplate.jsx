@@ -9,7 +9,8 @@ const TodoTemplateWrap = styled.div`
    margin: 1rem auto;
    background: #fff;
    border-radius: 10px;
-   padding: 1rem;
+   padding: 2rem;
+   box-sizing: border-box;
 `;
 
 function TodoTemplate(props) { 
@@ -17,12 +18,12 @@ function TodoTemplate(props) {
       {
          id: 1,
          text: '방 청소',
-         checked: true
+         checked: false,         
       },
       {
          id: 2,
          text: '책 읽기',
-         checked: true
+         checked: false
       },
       {
          id: 3,
@@ -31,7 +32,7 @@ function TodoTemplate(props) {
       }
    ]);
 
-   const nextId = useRef(0);
+   const nextId = useRef(4);
    
    const handleSubmit = useCallback((text) => {
       const todo = {
@@ -57,14 +58,19 @@ function TodoTemplate(props) {
 
    
    const handleRemove = useCallback((id) => {
-         setTodos(todos.filter((todo) => todo.id !==id ));    
+      setTodos(todos.filter((todo) => todo.id !==id ));    
    }, [todos]);
+
+   const handleClearAll = () => {
+      setTodos([]);    
+   };
+
 
    return ( 
       <TodoTemplateWrap>
-         <TodoHead />
+         <TodoHead todos={todos} />
          <TodoInsert onInsert={handleSubmit}/>
-         <TodoList todos={todos} onRemove={handleRemove} onToggel={handleToggle} />
+         <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onClearAll={handleClearAll} />
 
          
          

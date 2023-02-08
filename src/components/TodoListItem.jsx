@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import { FiCheck, FiTrash2 } from "react-icons/fi";
+import { FiBookmark, FiCheck, FiTrash2 } from "react-icons/fi";
 
 const TodoListItemWrap = styled.div`
   display: flex; 
@@ -10,20 +10,19 @@ const TodoListItemWrap = styled.div`
 `;
 
 const Text = styled.div`
-  /* ${props => props.checked && 
+  flex: 1;
+
+  ${props => props.checked && 
     css`
       color:#adb5bd;
       text-decoration:line-through;  
-    `} */
-
+    `}
 `;
-
 
 const Checkbox = styled.div`
   font-size: 20px;
   margin-right: 10px;
-
-
+  cursor: pointer;
 `;
 
 const Remove = styled.div`
@@ -32,26 +31,61 @@ const Remove = styled.div`
 
 `;
 
-function TodoListItem({ todo, onToggle, onRemove }) {
+function TodoListItem({ todo, done, onToggle, onRemove }) {
   const { id, text, checked } = todo;
+  const [ bookMark, setBookMark] = useState(false);
 
 
   return ( 
     <TodoListItemWrap>
-        <Text checked={checked}>
-          {text}
-        </Text>
+{/* 
+        <Bookmark>
+          
+
+
+          {bookMarkIcon === true ? (
+              <북마크체크표시완료></북마크체크표시완료>
+            ) : (
+              <북마크체크표시미완료></북마크체크표시미완료>
+            )}
+
+
+
+
+
+        </Bookmark> */}
 
         <Checkbox checked={checked} onClick={() => {onToggle(id); }}>
           <FiCheck /> 
         </Checkbox>
+
+{/* 
+        <Checkbox checked={checked} onClick={() => {onToggle(id); }}>
+        {checked ? <FiCheck /> : <FiCheck /> }
+      </Checkbox> */}
+
+        <Text checked={checked}>
+          {text}
+        </Text>
+
+        
         
         <Remove onClick={() => {onRemove(id);}}>
           <FiTrash2 />
         </Remove>
+
+
+
+      
     </TodoListItemWrap>
+
+
+
+
+
 
   );
 }
 
 export default TodoListItem;
+

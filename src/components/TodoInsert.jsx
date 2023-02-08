@@ -1,9 +1,21 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { CiEdit } from "react-icons/ci";
 
-const TodoInsertWrap = styled.div`
+const TodoInsertWrap = styled.form`
+display:flex;
 
 `;
+
+const StyledInput = styled.input`
+  border: none;
+  border-bottom: 1px solid #ddd;
+  outline: none;
+  flex: 1;
+
+
+`;
+const StyledButton = styled.button``;
 
 // 새로운 항목을 입력하고 추가할 수 잇는 컴포넌트
 function TodoInsert({onInsert}) {
@@ -23,11 +35,9 @@ function TodoInsert({onInsert}) {
   };
 
   return ( 
-    <TodoInsertWrap>
-      <input type="text" placeholder="Write here!" value={ value } onChange={ handleChange }></input>
-      <button type="submit" onClick={ handleSubmit }>추가하기</button>
-
-  
+    <TodoInsertWrap onSubmit={ handleSubmit}>
+      <StyledInput type="text" placeholder="Write here!" value={ value } onChange={ handleChange }></StyledInput>
+      <StyledButton type="submit"><CiEdit/></StyledButton>  
 
     </TodoInsertWrap>
   );

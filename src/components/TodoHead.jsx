@@ -47,11 +47,8 @@ function TodoHead(props) {
     <TodoHeadWrap>
       <div>{year} / {month < 10 ? "0" + month : month} / {data < 10 ? "0" + data : data}</div>
       <div>{day}</div>
-      <div className="todo-title">📝 ToDo List</div>
-      <p>해야 할 일이 {nmuber}개 남았습니다.</p> 
-{/* 
-
-  {nmuber} < 0 ? '해야 할 일이' + {nmuber} + '개 남았습니다.' : '해야 할 일이 없습니다.' */}
+      <h1 className="todo-title">📝 ToDo List</h1>
+    <p>{nmuber > 0 ? '해야 할 일이' + nmuber + '개 남았습니다.' : '해야 할 일이 없습니다.' }</p>
     </TodoHeadWrap>
   );
 }
